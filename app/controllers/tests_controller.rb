@@ -4,7 +4,7 @@ class TestsController < ApplicationController
   # GET /tests
   # GET /tests.json
   def index
-    @tests = Test.all.order('[order]')
+    @tests = Test.all.order('order_number')
     # Кука для сохранения админской куки 
     # /test/?sac=2b3492c3881d01f050e70b0b7d2f1405f4e192be
     @save_user_cookie = "949b40124a47a99856b721982eb8303f9d450887"

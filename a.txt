@@ -1,154 +1,101 @@
-Usage: curl [options...] <url>
-Options: (H) means HTTP/HTTPS only, (F) means FTP only
-     --anyauth       Pick "any" authentication method (H)
- -a, --append        Append to target file when uploading (F/SFTP)
-     --basic         Use HTTP Basic Authentication (H)
-     --cacert FILE   CA certificate to verify peer against (SSL)
-     --capath DIR    CA directory to verify peer against (SSL)
- -E, --cert CERT[:PASSWD] Client certificate file and password (SSL)
-     --cert-type TYPE Certificate file type (DER/PEM/ENG) (SSL)
-     --ciphers LIST  SSL ciphers to use (SSL)
-     --compressed    Request compressed response (using deflate or gzip)
- -K, --config FILE   Specify which config file to read
-     --connect-timeout SECONDS  Maximum time allowed for connection
- -C, --continue-at OFFSET  Resumed transfer offset
- -b, --cookie STRING/FILE  String or file to read cookies from (H)
- -c, --cookie-jar FILE  Write cookies to this file after operation (H)
-     --create-dirs   Create necessary local directory hierarchy
-     --crlf          Convert LF to CRLF in upload
-     --crlfile FILE  Get a CRL list in PEM format from the given file
- -d, --data DATA     HTTP POST data (H)
-     --data-ascii DATA  HTTP POST ASCII data (H)
-     --data-binary DATA  HTTP POST binary data (H)
-     --data-urlencode DATA  HTTP POST data url encoded (H)
-     --delegation STRING GSS-API delegation permission
-     --digest        Use HTTP Digest Authentication (H)
-     --disable-eprt  Inhibit using EPRT or LPRT (F)
-     --disable-epsv  Inhibit using EPSV (F)
- -D, --dump-header FILE  Write the headers to this file
-     --egd-file FILE  EGD socket path for random data (SSL)
-     --engine ENGINGE  Crypto engine (SSL). "--engine list" for list
- -f, --fail          Fail silently (no output at all) on HTTP errors (H)
- -F, --form CONTENT  Specify HTTP multipart POST data (H)
-     --form-string STRING  Specify HTTP multipart POST data (H)
-     --ftp-account DATA  Account data string (F)
-     --ftp-alternative-to-user COMMAND  String to replace "USER [name]" (F)
-     --ftp-create-dirs  Create the remote dirs if not present (F)
-     --ftp-method [MULTICWD/NOCWD/SINGLECWD] Control CWD usage (F)
-     --ftp-pasv      Use PASV/EPSV instead of PORT (F)
- -P, --ftp-port ADR  Use PORT with given address instead of PASV (F)
-     --ftp-skip-pasv-ip Skip the IP address for PASV (F)
-     --ftp-pret      Send PRET before PASV (for drftpd) (F)
-     --ftp-ssl-ccc   Send CCC after authenticating (F)
-     --ftp-ssl-ccc-mode ACTIVE/PASSIVE  Set CCC mode (F)
-     --ftp-ssl-control Require SSL/TLS for ftp login, clear for transfer (F)
- -G, --get           Send the -d data with a HTTP GET (H)
- -g, --globoff       Disable URL sequences and ranges using {} and []
- -H, --header LINE   Custom header to pass to server (H)
- -I, --head          Show document info only
- -h, --help          This help text
-     --hostpubmd5 MD5  Hex encoded MD5 string of the host public key. (SSH)
- -0, --http1.0       Use HTTP 1.0 (H)
-     --ignore-content-length  Ignore the HTTP Content-Length header
- -i, --include       Include protocol headers in the output (H/F)
- -k, --insecure      Allow connections to SSL sites without certs (H)
-     --interface INTERFACE  Specify network interface/address to use
- -4, --ipv4          Resolve name to IPv4 address
- -6, --ipv6          Resolve name to IPv6 address
- -j, --junk-session-cookies Ignore session cookies read from file (H)
-     --keepalive-time SECONDS  Interval between keepalive probes
-     --key KEY       Private key file name (SSL/SSH)
-     --key-type TYPE Private key file type (DER/PEM/ENG) (SSL)
-     --krb LEVEL     Enable Kerberos with specified security level (F)
-     --libcurl FILE  Dump libcurl equivalent code of this command line
-     --limit-rate RATE  Limit transfer speed to this rate
- -l, --list-only     List only names of an FTP directory (F)
-     --local-port RANGE  Force use of these local port numbers
- -L, --location      Follow redirects (H)
-     --location-trusted like --location and send auth to other hosts (H)
- -M, --manual        Display the full manual
-     --mail-from FROM  Mail from this address
-     --mail-rcpt TO  Mail to this receiver(s)
-     --mail-auth AUTH  Originator address of the original email
-     --max-filesize BYTES  Maximum file size to download (H/F)
-     --max-redirs NUM  Maximum number of redirects allowed (H)
- -m, --max-time SECONDS  Maximum time allowed for the transfer
-     --negotiate     Use HTTP Negotiate Authentication (H)
- -n, --netrc         Must read .netrc for user name and password
-     --netrc-optional Use either .netrc or URL; overrides -n
-     --netrc-file FILE  Set up the netrc filename to use
- -N, --no-buffer     Disable buffering of the output stream
-     --no-keepalive  Disable keepalive use on the connection
-     --no-sessionid  Disable SSL session-ID reusing (SSL)
-     --noproxy       List of hosts which do not use proxy
-     --ntlm          Use HTTP NTLM authentication (H)
- -o, --output FILE   Write output to <file> instead of stdout
-     --pass PASS     Pass phrase for the private key (SSL/SSH)
-     --post301       Do not switch to GET after following a 301 redirect (H)
-     --post302       Do not switch to GET after following a 302 redirect (H)
-     --post303       Do not switch to GET after following a 303 redirect (H)
- -#, --progress-bar  Display transfer progress as a progress bar
-     --proto PROTOCOLS  Enable/disable specified protocols
-     --proto-redir PROTOCOLS  Enable/disable specified protocols on redirect
- -x, --proxy [PROTOCOL://]HOST[:PORT] Use proxy on given port
-     --proxy-anyauth Pick "any" proxy authentication method (H)
-     --proxy-basic   Use Basic authentication on the proxy (H)
-     --proxy-digest  Use Digest authentication on the proxy (H)
-     --proxy-negotiate Use Negotiate authentication on the proxy (H)
-     --proxy-ntlm    Use NTLM authentication on the proxy (H)
- -U, --proxy-user USER[:PASSWORD]  Proxy user and password
-     --proxy1.0 HOST[:PORT]  Use HTTP/1.0 proxy on given port
- -p, --proxytunnel   Operate through a HTTP proxy tunnel (using CONNECT)
-     --pubkey KEY    Public key file name (SSH)
- -Q, --quote CMD     Send command(s) to server before transfer (F/SFTP)
-     --random-file FILE  File for reading random data from (SSL)
- -r, --range RANGE   Retrieve only the bytes within a range
-     --raw           Do HTTP "raw", without any transfer decoding (H)
- -e, --referer       Referer URL (H)
- -J, --remote-header-name Use the header-provided filename (H)
- -O, --remote-name   Write output to a file named as the remote file
-     --remote-name-all Use the remote file name for all URLs
- -R, --remote-time   Set the remote file's time on the local output
- -X, --request COMMAND  Specify request command to use
-     --resolve HOST:PORT:ADDRESS  Force resolve of HOST:PORT to ADDRESS
-     --retry NUM   Retry request NUM times if transient problems occur
-     --retry-delay SECONDS When retrying, wait this many seconds between each
-     --retry-max-time SECONDS  Retry only within this period
- -S, --show-error    Show error. With -s, make curl show errors when they occur
- -s, --silent        Silent mode. Don't output anything
-     --socks4 HOST[:PORT]  SOCKS4 proxy on given host + port
-     --socks4a HOST[:PORT]  SOCKS4a proxy on given host + port
-     --socks5 HOST[:PORT]  SOCKS5 proxy on given host + port
-     --socks5-hostname HOST[:PORT] SOCKS5 proxy, pass host name to proxy
-     --socks5-gssapi-service NAME  SOCKS5 proxy service name for gssapi
-     --socks5-gssapi-nec  Compatibility with NEC SOCKS5 server
- -Y, --speed-limit RATE  Stop transfers below speed-limit for 'speed-time' secs
- -y, --speed-time SECONDS  Time for trig speed-limit abort. Defaults to 30
-     --ssl           Try SSL/TLS (FTP, IMAP, POP3, SMTP)
-     --ssl-reqd      Require SSL/TLS (FTP, IMAP, POP3, SMTP)
- -2, --sslv2         Use SSLv2 (SSL)
- -3, --sslv3         Use SSLv3 (SSL)
-     --ssl-allow-beast Allow security flaw to improve interop (SSL)
-     --stderr FILE   Where to redirect stderr. - means stdout
-     --tcp-nodelay   Use the TCP_NODELAY option
- -t, --telnet-option OPT=VAL  Set telnet option
-     --tftp-blksize VALUE  Set TFTP BLKSIZE option (must be >512)
- -z, --time-cond TIME  Transfer based on a time condition
- -1, --tlsv1         Use TLSv1 (SSL)
-     --trace FILE    Write a debug trace to the given file
-     --trace-ascii FILE  Like --trace but without the hex output
-     --trace-time    Add time stamps to trace/verbose output
-     --tr-encoding   Request compressed transfer encoding (H)
- -T, --upload-file FILE  Transfer FILE to destination
-     --url URL       URL to work with
- -B, --use-ascii     Use ASCII/text transfer
- -u, --user USER[:PASSWORD]  Server user and password
-     --tlsuser USER  TLS username
-     --tlspassword STRING TLS password
-     --tlsauthtype STRING  TLS authentication type (default SRP)
- -A, --user-agent STRING  User-Agent to send to server (H)
- -v, --verbose       Make the operation more talkative
- -V, --version       Show version number and quit
- -w, --write-out FORMAT  What to output after completion
-     --xattr        Store metadata in extended file attributes
- -q                 If used as the first parameter disables .curlrc
+2014-12-01T14:16:32.043090+00:00 app[web.1]:   app/controllers/users_controller.rb:9:in `require_login'
+2014-12-01T14:16:32.043091+00:00 app[web.1]: 
+2014-12-01T14:16:32.043092+00:00 app[web.1]: 
+2014-12-01T14:16:32.384728+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=vast-garden-1690.herokuapp.com request_id=09564ec5-eeed-4a0d-b0bd-f003a50b50fe fwd="92.115.68.51" dyno=web.1 connect=1ms service=3ms status=304 bytes=133
+2014-12-01T14:33:43.619251+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by jscoming@gmail.com
+2014-12-01T14:33:48.029170+00:00 heroku[run.2277]: Awaiting client
+2014-12-01T14:33:48.060751+00:00 heroku[run.2277]: Starting process with command `bundle exec rake db:migrate`
+2014-12-01T14:33:48.392688+00:00 heroku[run.2277]: State changed from starting to up
+2014-12-01T14:33:52.927852+00:00 heroku[run.2277]: State changed from up to complete
+2014-12-01T14:33:52.919570+00:00 heroku[run.2277]: Process exited with status 0
+2014-12-01T14:34:13.821387+00:00 app[web.1]: Started GET "/" for 92.115.68.51 at 2014-12-01 14:34:13 +0000
+2014-12-01T14:34:13.821452+00:00 app[web.1]: Started GET "/" for 92.115.68.51 at 2014-12-01 14:34:13 +0000
+2014-12-01T14:34:13.827882+00:00 app[web.1]: Processing by WelcomeController#index as HTML
+2014-12-01T14:34:13.827942+00:00 app[web.1]: Processing by WelcomeController#index as HTML
+2014-12-01T14:34:13.829175+00:00 app[web.1]: Redirected to https://vast-garden-1690.herokuapp.com/results
+2014-12-01T14:34:13.829225+00:00 app[web.1]: Redirected to https://vast-garden-1690.herokuapp.com/results
+2014-12-01T14:34:13.829715+00:00 app[web.1]: Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+2014-12-01T14:34:14.052039+00:00 app[web.1]: Started GET "/results" for 92.115.68.51 at 2014-12-01 14:34:14 +0000
+2014-12-01T14:34:14.079460+00:00 app[web.1]: 
+2014-12-01T14:34:14.052046+00:00 app[web.1]: Started GET "/results" for 92.115.68.51 at 2014-12-01 14:34:14 +0000
+2014-12-01T14:34:14.053740+00:00 app[web.1]: Processing by ResultsController#index as HTML
+2014-12-01T14:34:14.053745+00:00 app[web.1]: Processing by ResultsController#index as HTML
+2014-12-01T14:34:14.079482+00:00 app[web.1]: 
+2014-12-01T14:34:14.079483+00:00 app[web.1]: 
+2014-12-01T14:34:14.079487+00:00 app[web.1]: 
+2014-12-01T14:34:14.078261+00:00 app[web.1]: Completed 404 Not Found in 24ms
+2014-12-01T14:34:13.830947+00:00 app[web.1]: Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+2014-12-01T14:34:14.078270+00:00 app[web.1]: Completed 404 Not Found in 24ms
+2014-12-01T14:34:14.079463+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+2014-12-01T14:34:14.079488+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+2014-12-01T14:34:14.079480+00:00 app[web.1]:   app/controllers/results_controller.rb:8:in `require_login'
+2014-12-01T14:34:14.079489+00:00 app[web.1]:   app/controllers/results_controller.rb:8:in `require_login'
+2014-12-01T14:34:14.079490+00:00 app[web.1]: 
+2014-12-01T14:34:13.834114+00:00 heroku[router]: at=info method=GET path="/" host=vast-garden-1690.herokuapp.com request_id=27a99e65-ecf0-4e0a-a0e4-1299785009de fwd="92.115.68.51" dyno=web.1 connect=3ms service=16ms status=302 bytes=577
+2014-12-01T14:34:14.079491+00:00 app[web.1]: 
+2014-12-01T14:34:14.088492+00:00 heroku[router]: at=info method=GET path="/results" host=vast-garden-1690.herokuapp.com request_id=e6ab651a-782a-4c58-bbf3-814f10b4afe9 fwd="92.115.68.51" dyno=web.1 connect=8ms service=37ms status=404 bytes=1616
+2014-12-01T14:34:14.442995+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=vast-garden-1690.herokuapp.com request_id=4eff2bae-0850-4a29-9dcc-3b8ae2e36bca fwd="92.115.68.51" dyno=web.1 connect=1ms service=3ms status=304 bytes=133
+2014-12-01T14:34:31.221809+00:00 heroku[router]: at=info method=GET path="/users/new?sc=949b40124a47a99856b721982eb8303f9d450887" host=vast-garden-1690.herokuapp.com request_id=910abbe7-8620-42b8-91d6-54c8e8f7fe8d fwd="92.115.68.51" dyno=web.1 connect=0ms service=11ms status=404 bytes=1616
+2014-12-01T14:34:31.211166+00:00 app[web.1]: Started GET "/users/new?sc=949b40124a47a99856b721982eb8303f9d450887" for 92.115.68.51 at 2014-12-01 14:34:31 +0000
+2014-12-01T14:34:31.211175+00:00 app[web.1]: Started GET "/users/new?sc=949b40124a47a99856b721982eb8303f9d450887" for 92.115.68.51 at 2014-12-01 14:34:31 +0000
+2014-12-01T14:34:31.218537+00:00 app[web.1]: Completed 404 Not Found in 5ms
+2014-12-01T14:34:31.218541+00:00 app[web.1]: Completed 404 Not Found in 5ms
+2014-12-01T14:34:31.219489+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+2014-12-01T14:34:31.213177+00:00 app[web.1]:   Parameters: {"sc"=>"949b40124a47a99856b721982eb8303f9d450887"}
+2014-12-01T14:34:31.213130+00:00 app[web.1]: Processing by UsersController#new as HTML
+2014-12-01T14:34:31.219487+00:00 app[web.1]: 
+2014-12-01T14:34:31.213134+00:00 app[web.1]: Processing by UsersController#new as HTML
+2014-12-01T14:34:31.213161+00:00 app[web.1]:   Parameters: {"sc"=>"949b40124a47a99856b721982eb8303f9d450887"}
+2014-12-01T14:34:31.219491+00:00 app[web.1]:   app/controllers/users_controller.rb:9:in `require_login'
+2014-12-01T14:34:31.219492+00:00 app[web.1]: 
+2014-12-01T14:34:31.219509+00:00 app[web.1]: 
+2014-12-01T14:34:31.219513+00:00 app[web.1]: 
+2014-12-01T14:34:31.219515+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+2014-12-01T14:34:31.219516+00:00 app[web.1]:   app/controllers/users_controller.rb:9:in `require_login'
+2014-12-01T14:34:31.219517+00:00 app[web.1]: 
+2014-12-01T14:34:31.219518+00:00 app[web.1]: 
+2014-12-01T14:34:42.615024+00:00 app[web.1]: Started GET "/results" for 92.115.68.51 at 2014-12-01 14:34:42 +0000
+2014-12-01T14:34:42.404308+00:00 app[web.1]: Started GET "/" for 92.115.68.51 at 2014-12-01 14:34:42 +0000
+2014-12-01T14:34:42.404320+00:00 app[web.1]: Started GET "/" for 92.115.68.51 at 2014-12-01 14:34:42 +0000
+2014-12-01T14:34:42.405167+00:00 app[web.1]: Processing by WelcomeController#index as HTML
+2014-12-01T14:34:42.405170+00:00 app[web.1]: Processing by WelcomeController#index as HTML
+2014-12-01T14:34:42.405901+00:00 app[web.1]: Redirected to https://vast-garden-1690.herokuapp.com/results
+2014-12-01T14:34:42.405906+00:00 app[web.1]: Redirected to https://vast-garden-1690.herokuapp.com/results
+2014-12-01T14:34:42.406060+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2014-12-01T14:34:42.406062+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2014-12-01T14:34:42.615014+00:00 app[web.1]: Started GET "/results" for 92.115.68.51 at 2014-12-01 14:34:42 +0000
+2014-12-01T14:34:42.615907+00:00 app[web.1]: Processing by ResultsController#index as HTML
+2014-12-01T14:34:42.615912+00:00 app[web.1]: Processing by ResultsController#index as HTML
+2014-12-01T14:34:42.619114+00:00 app[web.1]: Completed 404 Not Found in 3ms
+2014-12-01T14:34:42.619121+00:00 app[web.1]: Completed 404 Not Found in 3ms
+2014-12-01T14:34:42.620378+00:00 app[web.1]: 
+2014-12-01T14:34:42.620381+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+2014-12-01T14:34:42.620383+00:00 app[web.1]:   app/controllers/results_controller.rb:8:in `require_login'
+2014-12-01T14:34:42.620384+00:00 app[web.1]: 
+2014-12-01T14:34:42.620385+00:00 app[web.1]: 
+2014-12-01T14:34:42.620389+00:00 app[web.1]: 
+2014-12-01T14:34:42.620390+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+2014-12-01T14:34:42.620392+00:00 app[web.1]:   app/controllers/results_controller.rb:8:in `require_login'
+2014-12-01T14:34:42.620393+00:00 app[web.1]: 
+2014-12-01T14:34:42.620394+00:00 app[web.1]: 
+2014-12-01T14:34:42.622926+00:00 heroku[router]: at=info method=GET path="/results" host=vast-garden-1690.herokuapp.com request_id=2c86abc7-029f-4ba0-8ce4-cea4263d83b3 fwd="92.115.68.51" dyno=web.1 connect=1ms service=8ms status=404 bytes=1616
+2014-12-01T14:34:42.411178+00:00 heroku[router]: at=info method=GET path="/" host=vast-garden-1690.herokuapp.com request_id=c9dffb87-601f-497c-aac6-17dcc7645f1f fwd="92.115.68.51" dyno=web.1 connect=0ms service=6ms status=302 bytes=577
+2014-12-01T14:34:50.543273+00:00 heroku[router]: at=info method=GET path="/users/new?sc=949b40124a47a99856b721982eb8303f9d450887" host=vast-garden-1690.herokuapp.com request_id=8df33e6c-a7af-49bf-8bdc-47fcd204ddad fwd="92.115.68.51" dyno=web.1 connect=0ms service=11ms status=404 bytes=1616
+2014-12-01T14:34:50.532868+00:00 app[web.1]: Started GET "/users/new?sc=949b40124a47a99856b721982eb8303f9d450887" for 92.115.68.51 at 2014-12-01 14:34:50 +0000
+2014-12-01T14:34:50.540418+00:00 app[web.1]: 
+2014-12-01T14:34:50.535426+00:00 app[web.1]:   Parameters: {"sc"=>"949b40124a47a99856b721982eb8303f9d450887"}
+2014-12-01T14:34:50.539306+00:00 app[web.1]: Completed 404 Not Found in 3ms
+2014-12-01T14:34:50.535441+00:00 app[web.1]:   Parameters: {"sc"=>"949b40124a47a99856b721982eb8303f9d450887"}
+2014-12-01T14:34:50.539352+00:00 app[web.1]: Completed 404 Not Found in 3ms
+2014-12-01T14:34:50.540420+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+2014-12-01T14:34:50.540421+00:00 app[web.1]:   app/controllers/users_controller.rb:9:in `require_login'
+2014-12-01T14:34:50.540423+00:00 app[web.1]: 
+2014-12-01T14:34:50.532878+00:00 app[web.1]: Started GET "/users/new?sc=949b40124a47a99856b721982eb8303f9d450887" for 92.115.68.51 at 2014-12-01 14:34:50 +0000
+2014-12-01T14:34:50.535402+00:00 app[web.1]: Processing by UsersController#new as HTML
+2014-12-01T14:34:50.535408+00:00 app[web.1]: Processing by UsersController#new as HTML
+2014-12-01T14:34:50.540471+00:00 app[web.1]: 
+2014-12-01T14:34:50.540424+00:00 app[web.1]: 
+2014-12-01T14:34:50.540467+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+2014-12-01T14:34:50.540468+00:00 app[web.1]:   app/controllers/users_controller.rb:9:in `require_login'
+2014-12-01T14:34:50.540465+00:00 app[web.1]: 
+2014-12-01T14:34:50.540470+00:00 app[web.1]: 

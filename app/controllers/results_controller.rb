@@ -24,7 +24,7 @@ class ResultsController < ApplicationController
            redirect_to new_user_path(sc: @save_user_cookie)
          else 
            res  = Result.where(user_id: user.id).select(:test_id).uniq
-           test = Test.where.not(id: res).order('[order]').first 
+           test = Test.where.not(id: res).order('order_number').first 
            if test == nil
               redirect_to url_for(:controller => :users, :action => :show_result, user: user.id)
            else   
@@ -85,7 +85,7 @@ class ResultsController < ApplicationController
         i=i+1
       end   
     end
-      next_test_id = Test.all.order('[order]').where('[order] >'+Test.find(test_id).order.to_s).first
+      next_test_id = Test.all.order('order_number').where('order_number >'+Test.find(test_id).order.to_s).first
       if next_test_id!=nil 
         respond_to do |format|
             format.html { redirect_to results_path(user: user_id, test: next_test_id) }

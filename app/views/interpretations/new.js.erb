@@ -1,0 +1,10 @@
+var ans_bl = $(".one-interpretation");
+if ($(ans_bl).html()!=null)
+{
+
+	$(ans_bl).last().after("<%= escape_javascript(render partial: 'new' ) %>");
+}
+else
+{
+    $(ans_bl).prepend("<%= escape_javascript(render partial: 'new' ) %>");	
+}

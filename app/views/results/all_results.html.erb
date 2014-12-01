@@ -1,0 +1,51 @@
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Пол</th>
+      <th>Возраст</th>
+      <th>Профессия</th>
+      <th>Должность</th>
+      <th>Стаж работы</th>
+      <% user_id  = @results[0].user_id %>
+      <% i=0 %>    
+      <% while (user_id == @results[i].user_id ) %>
+        <% scale = Scale.find(@results[i].scale_id) %>        
+        <th><%= scale.name %></td>      
+        <% i=i+1 %>
+      <% end %>  
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i=0 %>    
+    <% while (i < @results.length)%>    
+    <tr>
+      <% result  = @results[i] %>
+      <% user  = User.find(result.user_id) %>
+      <% user_id = result.user_id%>
+      <td><%= user.sex %></td>
+      <td><%= user.age %></td>      
+      <td><%= user.profession %></td>
+      <td><%= user.workFunction %></td>      
+      <td><%= user.workAge%></td>
+
+      <% while ( i < @results.length && user_id == result.user_id ) %>
+        <% scale = Scale.find(result.scale_id) %>        
+        <td><%= result.result %></td>      
+        <% user_id = result.user_id%>        
+        <% i=i+1 %>
+        <% result  = @results[i] %>              
+      <% end %>  
+      <% break if i >= @results.length%>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Сохранить данные', new_user_path,id: 'link_for_user'  %>
+
+
+
+

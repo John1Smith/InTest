@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scale:</strong>
+  <%= @interpretation.scale_id %>
+</p>
+
+<p>
+  <strong>Value from:</strong>
+  <%= @interpretation.value_from %>
+</p>
+
+<p>
+  <strong>Value to:</strong>
+  <%= @interpretation.value_to %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @interpretation.text %>
+</p>
+
+<%= link_to 'Edit', edit_interpretation_path(@interpretation) %> |
+<%= link_to 'Back', interpretations_path %>

@@ -1,0 +1,13 @@
+var question_id = <%= params[:question_id] %>;
+var ans_bl = $("#"+question_id+".question-block").find(".answer-block");
+if ($(ans_bl).find(".input-append").html()!=null)
+{
+	$(ans_bl).find(".input-append").last().after("<%= escape_javascript(render partial: 'new' ) %>");
+}
+else
+{
+    $(ans_bl).prepend("<%= escape_javascript(render partial: 'new' ) %>");	
+}
+
+//console.log($(ans_bl).find('input:last').position().top);
+//$('body').animate({scrollTop: $(ans_bl).find('input:last').position().top+10},100);

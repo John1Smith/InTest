@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scale:</strong>
+  <%= @scale_result.scale_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @scale_result.user_id %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @scale_result.result %>
+</p>
+
+<%= link_to 'Edit', edit_scale_result_path(@scale_result) %> |
+<%= link_to 'Back', scale_results_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  sex: MyString
+  age: 1
+  work: MyText
+  profession: MyText
+  workFunction: MyText
+  workAge: 1
+
+two:
+  name: MyString
+  sex: MyString
+  age: 1
+  work: MyText
+  profession: MyText
+  workFunction: MyText
+  workAge: 1

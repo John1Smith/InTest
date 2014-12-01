@@ -1,0 +1,30 @@
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Название</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i=0 %>
+    <% @tests.each do |test| %>
+    <tr>
+      <td><%= i += 1 %></td>
+      <td><%= link_to test.name, edit_test_path(test) %></td>
+      <td class="questions"><%= link_to 'Вопросы и ответы', questions_path(test: test)  %></td>
+      <td class="scales"><%= link_to 'Шкалы', scales_path(test: test)  %></td>
+      <td class="generation"><%= link_to 'Генерация', results_path(test: test)  %></td>
+      <td class="results"><%= link_to 'Результаты', results_all_results_path %></td> 
+      <td><%= link_to 'Удалить', test, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить?' } ,remote: true %></td>      
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Ссылка для пользователя...', new_user_path(sc: @save_user_cookie), id: 'link_for_user'  %>
+
+
+<%= link_to 'Добавить опросник', new_test_path, remote: true %>
+

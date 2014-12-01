@@ -1,0 +1,21 @@
+// Place all the styles related to the Tests controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.actions > input {
+    margin-top: 16px;
+}
+div.field, div.actions {
+    float: left;
+    margin-left: 10px;
+}
+
+#test_description {
+    height: 15px;
+}
+
+
+form {
+    clear: both;
+}
+

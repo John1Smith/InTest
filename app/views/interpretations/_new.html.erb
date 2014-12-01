@@ -1,0 +1,10 @@
+
+
+        <div class="one-interpretation input-append">
+        <%= fields_for 'interpretations[]', @interpretation do |ifrm| %>
+        <%= ifrm.number_field :value_from, class: 'intervals' %>
+        <%= ifrm.number_field :value_to, class: 'intervals' %>
+        <%= ifrm.text_area :text, cols: 100, rows: 5, class: 'text_i' %>
+        <% end %>
+        <%= link_to 'X', @interpretation, method: :delete, class:'btn delete-a', remote: true  %>                          
+        </div>

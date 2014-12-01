@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  scale_id: 1
+  value_from: 1
+  value_to: 1
+  text: MyString
+
+two:
+  scale_id: 1
+  value_from: 1
+  value_to: 1
+  text: MyString

@@ -1,0 +1,7 @@
+<div class="input-append one-answer">
+   <%= fields_for 'answers[]',@answer do |af| %>	
+     	<%= af.text_field :text %>
+     	<%= af.text_field :answer_value %>
+  	<% end %>
+	<%= link_to 'X', @answer, method: :delete, class:'btn delete-a', remote: true  %>              			   		
+</div>	

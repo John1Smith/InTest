@@ -1,0 +1,12 @@
+<div class="question-block">
+	<div class="input-prepend input-append">
+		<span class='add-on'><i class='icon-resize-vertical'></i></span>
+		     
+		     <%= fields_for 'questions[]', @question do |qf| %>
+		         <%= qf.text_field :text, :class => 'input-q' %>
+		     <% end %> 
+       <%= link_to 'X', @question, method: :delete, class:'btn delete-q', remote: true  %>         
+	</div>
+	<div class="answers-block">
+	</div>
+</div>

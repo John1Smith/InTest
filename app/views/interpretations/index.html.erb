@@ -1,0 +1,33 @@
+<h1>Listing interpretations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scale</th>
+      <th>Value from</th>
+      <th>Value to</th>
+      <th>Text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interpretations.each do |interpretation| %>
+      <tr>
+        <td><%= interpretation.scale_id %></td>
+        <td><%= interpretation.value_from %></td>
+        <td><%= interpretation.value_to %></td>
+        <td><%= interpretation.text %></td>
+        <td><%= link_to 'Show', interpretation %></td>
+        <td><%= link_to 'Edit', edit_interpretation_path(interpretation) %></td>
+        <td><%= link_to 'Destroy', interpretation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interpretation', new_interpretation_path %>

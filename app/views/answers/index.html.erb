@@ -1,0 +1,43 @@
+<h1>Listing answers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Answer value</th>
+      <th>Test</th>
+      <th>Question</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= qid=0 %>
+
+    <% @answers.each do |answer| %>
+       
+     
+       
+      
+      <tr>
+      <td><%=  answer.question.text if answer.question_id!=qid  %></td>
+      <%= qid=answer.question_id %>
+        <td><%= answer.text %></td>
+        <td><%= answer.answer_value %></td>
+        <td><%= answer.test_id %></td>
+        <td><%= answer.question_id %></td>
+        <td><%= link_to 'Show', answer %></td>
+        <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
+        <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <tr></tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Answer', new_answer_path, remote: true %>
+<div id='answer-new'></div>

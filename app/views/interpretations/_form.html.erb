@@ -1,0 +1,33 @@
+<%= form_for(@interpretation) do |f| %>
+  <% if @interpretation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interpretation.errors.count, "error") %> prohibited this interpretation from being saved:</h2>
+
+      <ul>
+      <% @interpretation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :scale_id %><br>
+    <%= f.number_field :scale_id %>
+  </div>
+  <div class="field">
+    <%= f.label :value_from %><br>
+    <%= f.number_field :value_from %>
+  </div>
+  <div class="field">
+    <%= f.label :value_to %><br>
+    <%= f.number_field :value_to %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<div class="wrapper_body">
+
+<div id="text_zag">
+  <h1 id='h1-test' test_type= <%= @test.test_type%> ><%= @test.name %></h1>
+  <h4><%= @test.description %></h4>
+</div>
+
+
+<%= form_for @question, remote: false, url: {action: "save_all",:test_id => @test_id, :user_id => @user_id} do |f| %>
+  <% @questions.each do |question| %>
+    <%= fields_for 'questions[]', question do |qf| %>
+      <div class="q-block" name='question_id'  id="<%=question.id %>">
+          <div class="q-text"><%= question.text %></div>
+          <div class="answer-block">
+          <% question.answers.where(test_id: @test_id).each do |answer| %>
+             <%= fields_for 'answers[]',answer do |af| %> 
+                  
+
+                <%= radio_button :question, question.id, answer.id.to_s,
+                :checked => (@results.where(answer_id: answer.id).present?),"data-label" => answer.text  %>
+                
+            <% end %>
+          <% end %>
+          </div>
+          <div class="q-text2"><%= question.text2 %></div>                    
+          <br>
+      </div>
+    <% end %>
+  <% end %>
+
+
+  <%= submit_tag("Сохранить и перейти к следующим вопросам ->>",class:'btn btn-small',id:'submit-button') %>
+<% end %>
+
+
+
+  
+<br>
+
+<%= link_to 'New Result', new_result_path %>
+</div>

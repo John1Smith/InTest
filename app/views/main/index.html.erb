@@ -1,0 +1,45 @@
+<head> 
+
+<%= stylesheet_link_tag "bootstrap.min", "prettyCheckable", "main" %>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<%= javascript_include_tag "prettyCheckable", "bootstrap.min","applcation.js" %>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+<div id="body">
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Название</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i=0 %>
+    <% @tests.each do |test| %>
+      <tr>
+        <td><%= i += 1 %></td>
+        <td><%= link_to test.name, test %></td>
+		<td class="questions"><%= link_to 'Вопросы', questions_path(test: test)  %></td>
+		<td class="scales"><a href="#">Шкалы</a></td>
+		<td class="generation"><%= link_to 'Генерация', results_path(test: test)  %></td>
+		<td class="results"><a href="#">Результаты</a></td> 
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Ссылка для пользователя...', new_user_path,id: 'link_for_user'  %>
+</div>
+</body>

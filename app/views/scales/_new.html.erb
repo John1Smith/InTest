@@ -1,0 +1,8 @@
+<div class="input-append one-scale">
+   <%= fields_for 'scales[]',@scale do |af| %>	
+           <%= af.check_box(:for_user) %>
+     	<%= af.text_field :name %>
+     	<%= af.text_field :questions %>
+  	<% end %>
+	<%= link_to 'X', @scale, method: :delete, class:'btn delete-a', remote: true  %>              			   		
+</div>	

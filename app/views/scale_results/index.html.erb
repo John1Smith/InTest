@@ -1,0 +1,31 @@
+<h1>Listing scale_results</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scale</th>
+      <th>User</th>
+      <th>Result</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scale_results.each do |scale_result| %>
+      <tr>
+        <td><%= scale_result.scale_id %></td>
+        <td><%= scale_result.user_id %></td>
+        <td><%= scale_result.result %></td>
+        <td><%= link_to 'Show', scale_result %></td>
+        <td><%= link_to 'Edit', edit_scale_result_path(scale_result) %></td>
+        <td><%= link_to 'Destroy', scale_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scale result', new_scale_result_path %>

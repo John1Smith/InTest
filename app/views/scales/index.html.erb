@@ -1,0 +1,43 @@
+<h1><%= @test_name %></h1>
+ <h4>Шкалы</h4>
+<%= form_for @scale, remote: true, url: {action: "save_all"} do |f| %>
+ <div class="one-scale input-append">
+ </div> 
+  <% @scales.each do |scale| %>
+     <%= fields_for 'scales[]',scale do |sf| %> 
+        <div class="one-scale input-append">
+
+        <%= sf.check_box(:for_user) %>
+        <%= sf.text_field :name %>
+        <%= sf.text_field :questions %>
+        <%= link_to 'X', scale, method: :delete, class:'btn delete-a', remote: true  %>                          
+        </div>
+      <% end %>
+ 
+  <% end %>
+  <%= link_to 'Добавить шкалу',new_scale_path(:test_id => @test_id), class:'btn btn-small',id: 'add-s', remote: true %>
+  <%= submit_tag("Сохранить",class:'btn btn-small',id:'submit-button') %>
+  <%= link_to 'Удалить все', {controller: 'scales', action: 'delete_all',:test_id => @test_id}, class:'btn btn-small',remote: true %>
+<% end %>
+<div id='end-body'></div>
+<br>
+<br>
+ <h4>Интерпертации</h4>
+<%= form_for @interpretation, remote: true, url: {controller: 'interpretations',action: "save_all_inters"} do |f| %>
+ <div class="one-interpretation input-append">
+ </div> 
+  <% @interpretations.each do |interpretation| %>
+     <%= fields_for 'interpretations[]',interpretation do |sf| %> 
+        <div class="one-interpretation input-append">
+        <%= sf.number_field :value_from, class: 'intervals' %>
+        <%= sf.number_field :value_to, class: 'intervals' %>
+        <%= sf.text_area :text, cols: 100, rows: 5, class: 'text_i' %>
+        <%= link_to 'X', interpretation, method: :delete, class:'btn delete-a', remote: true  %>                          
+        </div>
+      <% end %>
+ 
+  <% end %>
+  <%= link_to 'Добавить',new_interpretation_path(:scale_id => @scale_for_user_id), class:'btn btn-small',id: 'add-int', remote: true %>
+  <%= submit_tag("Сохранить",class:'btn btn-small',id:'submit-button') %>
+  <%= link_to 'Удалить все', {controller: 'interpretations', action: 'delete_all_inters',:scale_id => @scale_id}, class:'btn btn-small',remote: true %>
+<% end %>

@@ -1,0 +1,58 @@
+<h1><%= @test_name %></h1>
+
+ 
+
+<%= form_for @question, remote: true, url: {action: "formQuestions"} do |form| %>
+	<input type='text' name="test_id" value="<%= @test_id %>" style="display:none"></div>
+	<%= text_area_tag(:question_names, "", rows: 5)  %>	
+	<% if @test.test_type==2 %>
+		<%= text_area_tag(:question_text2, "", rows: 5)  %>	
+	<% end %>	
+	<%= submit_tag("Сформировать вопросы",class:'btn btn-small') %>   
+<% end %>
+
+
+
+
+<%= form_for @answer, remote: true, url: {action: "form_answers"} do |form| %>
+	<input type='text' name="test_id" value="<%= @test_id %>" style="display:none"></div>
+	<%= text_area_tag(:answer_names, "", rows: 5, cols: 30,class: 'answer')  %>	
+	<%= text_area_tag(:answer_values, "", rows: 5, cols: 30,class: 'answer')  %>	
+	<%= submit_tag("Сформировать ответы",class:'btn btn-small') %>   
+<% end %>
+
+<%= form_for @question, remote: true, url: {action: "save_all"} do |f| %>
+	<% @questions.each do |question| %>
+		<%= fields_for 'questions[]', question do |qf| %>
+    	<div class="question-block" id="<%=question.id %>">
+      		<div class="input-prepend input-append">
+         		<span class='add-on'>       		
+         		<i class='icon-resize-vertical'></i>
+         		</span>
+		     	<%= qf.text_field :text, :class => 'input-q'%>
+       			<%= link_to 'X', question, method: :delete, class:'btn delete-q', remote: true  %>         
+      		</div>
+
+      		<div class="answer-block">
+		    	<% question.answers.each do |answer| %>
+			       <%= fields_for 'answers[]',answer do |af| %>	
+					 <div class="one-answer input-append">
+     			   		<%= af.text_field :text %>
+     			   		<%= af.text_field :answer_value %>
+						<%= link_to 'X', answer, method: :delete, class:'btn delete-a', remote: true  %>              			   		
+					  </div>
+             		  <br>
+  			 		<% end %>
+		  		<% end %>
+	    	    <%= link_to 'Добавить ответ',new_answer_path(:test_id => @test_id,:question_id => question.id), class:'btn btn-small',id: 'add-a', remote: true %>
+			</div>
+      		<br>
+		</div>
+		<% end %>
+	<% end %>
+	<br>	
+	<%= link_to 'Добавить вопрос', new_question_path(:test_id => @test_id), class:'btn btn-small',id: 'add-q', remote: true %>
+	<%= submit_tag("Сохранить",class:'btn btn-small',id:'submit-button') %>
+	<%= link_to 'Удалить все', {controller: 'questions', action: 'delete_all',:test_id => @test_id}, class:'btn btn-small',remote: true %>
+	<div id='end-body'></div>
+<% end %>

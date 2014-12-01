@@ -1,0 +1,29 @@
+<%= form_for(@scale_result) do |f| %>
+  <% if @scale_result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scale_result.errors.count, "error") %> prohibited this scale_result from being saved:</h2>
+
+      <ul>
+      <% @scale_result.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :scale_id %><br>
+    <%= f.number_field :scale_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :result %><br>
+    <%= f.number_field :result %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

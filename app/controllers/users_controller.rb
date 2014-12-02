@@ -117,7 +117,7 @@ class UsersController < ApplicationController
     @user.cookie = cookies[:user]
     respond_to do |format|
       if @user.save
-        begin_test_id = Test.all.order('[order]').first.id
+        begin_test_id = Test.all.order('order_number').first.id
         format.html { redirect_to results_path(user: @user.id, test: begin_test_id) }
         format.json { render action: 'show', status: :created, location: @user }
       else

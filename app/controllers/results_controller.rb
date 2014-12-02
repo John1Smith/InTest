@@ -63,7 +63,9 @@ class ResultsController < ApplicationController
   end
 
   def all_results
+    
     @results = ScaleResult.all.order('user_id')
+
   end 
 
   def save_all

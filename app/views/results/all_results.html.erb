@@ -6,14 +6,17 @@
       <th>Профессия</th>
       <th>Должность</th>
       <th>Стаж работы</th>
+
+      <% if (@results[0]!=nil) %>          
       <% user_id  = @results[0].user_id %>
       <% i=0 %>    
-      <% while (user_id == @results[i].user_id ) %>
+      <% while (i<@results.length && user_id == @results[i].user_id ) %>
         <% scale = Scale.find(@results[i].scale_id) %>        
         <th><%= scale.name %></td>      
         <% i=i+1 %>
-      <% end %>  
 
+      <% end %>  
+      <% end %>  
     </tr>
   </thead>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201155750) do
+ActiveRecord::Schema.define(version: 20141202134419) do
 
   create_table "answers", force: true do |t|
     t.text     "text"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20141201155750) do
     t.integer  "scale_id"
     t.integer  "value_from"
     t.integer  "value_to"
-    t.string   "text"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

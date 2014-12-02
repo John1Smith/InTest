@@ -1,5 +1,5 @@
 class AddOrderNumberToTests < ActiveRecord::Migration
   def change
-    add_column :tests, :order_number, :integer
+    change_column :interpretations, :text, :text, :limit => nil
   end
 end

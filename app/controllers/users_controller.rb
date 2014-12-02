@@ -112,7 +112,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-
+    user_params.inspect
     @user = User.new(user_params)
     @user.cookie = cookies[:user]
     respond_to do |format|

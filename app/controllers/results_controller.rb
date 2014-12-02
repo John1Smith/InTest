@@ -85,7 +85,7 @@ class ResultsController < ApplicationController
         i=i+1
       end   
     end
-      next_test_id = Test.all.order('order_number').where('order_number >'+Test.find(test_id).order.to_s).first
+      next_test_id = Test.all.order('order_number').where('order_number >'+Test.find(test_id).order_number.to_s).first
       if next_test_id!=nil 
         respond_to do |format|
             format.html { redirect_to results_path(user: user_id, test: next_test_id) }

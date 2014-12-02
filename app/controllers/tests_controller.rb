@@ -82,7 +82,7 @@ class TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(:name, :description, :order, :test_type)
+      params.require(:test).permit(:name, :description, :order_number, :test_type)
     end
 
     def require_login

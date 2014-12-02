@@ -19,7 +19,9 @@ class ResultsController < ApplicationController
       if params[:test] == nil
          @save_user_cookie = "949b40124a47a99856b721982eb8303f9d450887"
          user_cookie = cookies[:user]
-         user = User.where(cookie: user_cookie).first
+         if user_cookie != nil
+            user = User.where(cookie: user_cookie).first
+         end   
          if user==nil
            redirect_to new_user_path(sc: @save_user_cookie)
          else 
@@ -85,6 +87,7 @@ class ResultsController < ApplicationController
         i=i+1
       end   
     end
+
       next_test_id = Test.all.order('order_number').where('order_number >'+Test.find(test_id).order_number.to_s).first
       if next_test_id!=nil 
         respond_to do |format|

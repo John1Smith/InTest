@@ -4,11 +4,10 @@ class UsersController < ApplicationController
 
 
   def require_login
-    
       ck = cookies[:admin]
       if ck!=User.find(1).cookie
          user_cookie = cookies[:user]
-         if user_cookie==""
+         if user_cookie==nil
             @save_user_cookie = "949b40124a47a99856b721982eb8303f9d450887"
             if params[:sc] == @save_user_cookie
                ck_user = Digest::SHA1.hexdigest([Time.now, rand].join)    

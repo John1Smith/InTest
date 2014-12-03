@@ -34,6 +34,8 @@ class ResultsController < ApplicationController
            test = Test.where.not(id: res).order('order_number').first 
            if test == nil
               redirect_to url_for(:controller => :users, :action => :show_result, user: user.id)
+              # redirect_to show_result_path(user: user.id)              
+              # link_to "Add", student_batch_students_path(@student, :batch_id => b.id), :method=> :post               
            else   
                @user_id = user.id
                @test_id = test.id
@@ -51,9 +53,12 @@ class ResultsController < ApplicationController
          end
 
       else 
-
-
-         @user_id = params[:user]!=nil ? params[:user] : '1'
+         user_cookie = cookies[:user]
+         if user_cookie != nil
+            user = User.where(cookie: user_cookie).first
+         end   
+         @user_id = user!=nil ? user.id : '1'
+         # @user_id = params[:user]!=nil ? params[:user] : '1'
          @test_id = params[:test]
          @results = Result.where(test_id: params[:test], user_id: @user_id)        
          @result  = Result.new
@@ -95,7 +100,8 @@ class ResultsController < ApplicationController
       end   
     end
 
-      next_test_id = Test.all.order('order_number').where('order_number >'+Test.find(test_id).order_number.to_s).first
+      next_test_id  = Test.all.order('order_number').where('order_number >'+Test.find(test_id).order_number.to_s).first
+      @is_next_test = next_test_id  
       if next_test_id!=nil 
         respond_to do |format|
             format.html { redirect_to results_path(user: user_id, test: next_test_id) }

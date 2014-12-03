@@ -7,15 +7,17 @@ class UsersController < ApplicationController
       ck = cookies[:admin]
       if ck!=User.find(1).cookie
          user_cookie = cookies[:user]
-         if user_cookie==nil
+         # if user_cookie==nil
             @save_user_cookie = "949b40124a47a99856b721982eb8303f9d450887"
             if params[:sc] == @save_user_cookie
                ck_user = Digest::SHA1.hexdigest([Time.now, rand].join)    
                cookies[:user] = ck_user
             else
-               render nothing: true, status: :unauthorized             
+              if user_cookie==nil
+                 render nothing: true, status: :unauthorized             
+              end   
             end    
-         end 
+         # end 
       end
   end
   # GET /users
@@ -32,7 +34,12 @@ class UsersController < ApplicationController
 
   def show_result
       @save_user_cookie = "949b40124a47a99856b721982eb8303f9d450887"
-      @user = User.find(params['user']) 
+      # if params['user'] != nil
+      #   @user = User.find(params['user']) 
+      # end
+      if cookies['user'] != nil
+        @user = User.where(cookie: cookies['user']).first
+      end  
 
       ScaleResult.delete_all(user_id: @user.id)
       test_ids = Result.where(user_id: @user.id).select(:test_id).distinct

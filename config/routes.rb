@@ -29,6 +29,7 @@ InTest::Application.routes.draw do
 
   post 'results/save_all' => 'results#save_all' 
   get 'users/show_result' => 'users#show_result' 
+  
 
   post 'scales/save_all' => 'scales#save_all' 
   get  'scales/delete_all' => 'scales#delete_all'   

@@ -9,19 +9,7 @@
       <% @scales.each() do |sc|  %>          
           <th><%= sc.name %></td>      
       <% end %>          
-
-
-<!--       <% if (@results[0]!=nil) %>          
-        <% user_id  = @results[0].user_id %>
-        <% i=0 %>    
-        <% while (i<@results.length && user_id == @results[i].user_id ) %>
-          <% scale = Scale.find(@results[i].scale_id) %>        
-          <th><%= scale.name %></td>      
-          <% i=i+1 %>
-
-        <% end %>  
-      <% end %>  
- -->    </tr>
+   </tr>
   </thead>
 
   <tbody>

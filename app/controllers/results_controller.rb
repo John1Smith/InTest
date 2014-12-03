@@ -23,7 +23,12 @@ class ResultsController < ApplicationController
             user = User.where(cookie: user_cookie).first
          end   
          if user==nil
-           redirect_to new_user_path(sc: @save_user_cookie)
+            @save_user_cookie = "949b40124a47a99856b721982eb8303f9d450887"
+            if params[:sc] == @save_user_cookie
+              redirect_to new_user_path(sc: @save_user_cookie)
+            else 
+              render nothing: true, status: :unauthorized              
+            end  
          else 
            res  = Result.where(user_id: user.id).select(:test_id).uniq
            test = Test.where.not(id: res).order('order_number').first 
@@ -63,7 +68,7 @@ class ResultsController < ApplicationController
   end
 
   def all_results
-    
+
     @results = ScaleResult.all.order('user_id')
 
   end 

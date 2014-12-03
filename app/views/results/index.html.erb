@@ -29,13 +29,8 @@
   <% end %>
 
 
-  <%= submit_tag("Сохранить и перейти к следующим вопросам ->>",class:'btn btn-small',id:'submit-button') %>
+  <%= submit_tag(@is_next_test!=nil ? "Сохранить и перейти к следующим вопросам ->>" : "Сохранить и получить результат ->>" ,class:'btn btn-small',id:'submit-button') %>
 <% end %>
-
-
-
-  
+ 
 <br>
-
-<%= link_to 'New Result', new_result_path %>
 </div>

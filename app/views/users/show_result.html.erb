@@ -7,10 +7,10 @@
 			<div class="r-text"><%= text %></div>
 		<% end %>
 	</div>
-</div>
-<div id='share'>
-	<%= text_field_tag('share_link', new_user_path(sc: @save_user_cookie, :only_path => false), size: 275)  %>
-	<%= button_tag :class => "btn btn-primary", :id =>'share_button' do %>
-	 <%= t('Поделиться сслыкой на исследование')%>
-	<% end %>
+	<div id='share'>
+		<%= text_field_tag('share_link', new_user_path(sc: @save_user_cookie, :only_path => false), size: 275)  %>
+		<%= button_tag :class => "btn btn-primary", :id =>'share_button' do %>
+		 <%= t('Поделиться ссылкой на исследование')%>
+		<% end %>
+	</div>	
 </div>

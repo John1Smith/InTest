@@ -25,6 +25,7 @@
     <% while (i < @results.length)%>    
     <tr>
       <% result  = @results[i] %>
+      
       <% user  = User.find(result.user_id) %>
       <% user_id = result.user_id%>
       <td><%= user.sex %></td>

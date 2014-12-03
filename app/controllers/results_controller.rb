@@ -75,6 +75,9 @@ class ResultsController < ApplicationController
   def all_results
 
     @results = ScaleResult.all.order('user_id')
+    tests_all = Test.all
+    @scales = Scale.where(test_id: tests_all).order(:test_id)
+
 
   end 
 

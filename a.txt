@@ -1,0 +1,103 @@
+2014-12-02T15:01:48.909546+00:00 app[web.1]: Processing by ResultsController#all_results as HTML
+2014-12-02T15:01:48.954247+00:00 app[web.1]:   Rendered results/all_results.html.erb within layouts/application (41.0ms)
+2014-12-02T15:01:48.954255+00:00 app[web.1]:   Rendered results/all_results.html.erb within layouts/application (41.0ms)
+2014-12-02T15:01:48.954341+00:00 app[web.1]: Completed 500 Internal Server Error in 45ms
+2014-12-02T15:01:48.954346+00:00 app[web.1]: Completed 500 Internal Server Error in 45ms
+2014-12-02T15:01:48.955717+00:00 app[web.1]: 
+2014-12-02T15:01:48.955720+00:00 app[web.1]: 
+2014-12-02T15:01:48.955722+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=2):
+2014-12-02T15:01:48.955723+00:00 app[web.1]:   app/views/results/all_results.html.erb:25:in `_app_views_results_all_results_html_erb___2467363758997536558_69936668725720'
+2014-12-02T15:01:48.955724+00:00 app[web.1]: 
+2014-12-02T15:01:48.955725+00:00 app[web.1]: 
+2014-12-02T15:01:48.955715+00:00 app[web.1]: 
+2014-12-02T15:01:52.287654+00:00 app[web.1]: Processing by TestsController#index as HTML
+2014-12-02T15:01:52.287659+00:00 app[web.1]: Processing by TestsController#index as HTML
+2014-12-02T15:01:52.296198+00:00 app[web.1]:   Rendered tests/index.html.erb within layouts/application (4.9ms)
+2014-12-02T15:01:52.296206+00:00 app[web.1]:   Rendered tests/index.html.erb within layouts/application (4.9ms)
+2014-12-02T15:01:52.296982+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 3.8ms | ActiveRecord: 4.4ms)
+2014-12-02T15:01:52.296986+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 3.8ms | ActiveRecord: 4.4ms)
+2014-12-02T15:01:52.286774+0
+0:00 app[web.1]: Started GET "/tests" for 92.115.68.51 at 2014-12-02 15:01:52 +0000
+2014-12-02T15:01:52.286782+00:00 app[web.1]: Started GET "/tests" for 92.115.68.51 at 2014-12-02 15:01:52 +0000
+2014-12-02T15:01:52.296990+00:00 heroku[router]: at=info method=GET path="/tests" host=vast-garden-1690.herokuapp.com request_id=3db72da6-c2b2-4cef-8e38-6f6a1f211742 fwd="92.115.68.51" dyno=web.1 connect=1ms service=15ms status=304 bytes=950
+2014-12-02T15:01:55.385538+00:00 app[web.1]: Started GET "/results/all_results" for 92.115.68.51 at 2014-12-02 15:01:55 +0000
+2014-12-02T15:01:55.385547+00:00 app[web.1]: Started GET "/results/all_results" for 92.115.68.51 at 2014-12-02 15:01:55 +0000
+2014-12-02T15:01:55.423304+00:00 app[web.1]:   Rendered results/all_results.html.erb within layouts/application (33.2ms)
+2014-12-02T15:01:55.423373+00:00 app[web.1]: Completed 500 Internal Server Error in 37ms
+2014-12-02T15:01:55.423386+00:00 app[web.1]: Completed 500 Internal Server Error in 37ms
+2014-12-02T15:01:55.424685+00:00 app[web.1]: 
+2014-12-02T15:01:55.424687+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=2):
+2014-12-02T15:01:55.424689+00:00 app[web.1]:   app/views/results/all_results.html.erb:25:in `_app_views_results_all_results_html_erb___2467363758997536558_69936832981900'
+2014-12-02T15:01:55.424690+00:00 app[web.1]: 
+2014-12-02T15:01:55.386412+00:00 app[web.1]: Processing by ResultsController#all_results as HTML
+2014-12-02T15:01:55.386416+00:00 app[web.1]: Processing by ResultsController#all_results as HTML
+2014-12-02T15:01:55.423326+00:00 app[web.1]:   Rendered results/all_results.html.erb within layouts/application (33.2ms)
+2014-12-02T15:01:55.424691+00:00 app[web.1]: 
+2014-12-02T15:01:55.424694+00:00 app[web.1]: 
+2014-12-02T15:01:55.424696+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=2):
+2014-12-02T15:01:55.424697+00:00 app[web.1]:   app/views/results/all_results.html.erb:25:in `_app_views_results_all_results_html_erb___2467363758997536558_69936832981900'
+2014-12-02T15:01:55.424698+00:00 app[web.1]: 
+2014-12-02T15:01:55.424699+00:00 app[web.1]: 
+2014-12-02T15:01:55.424329+00:00 heroku[router]: at=info method=GET path="/results/all_results" host=vast-garden-1690.herokuapp.com request_id=7c6182a7-f07c-4693-9579-9f041b5aef8d fwd="92.115.68.51" dyno=web.1 connect=2ms service=46ms status=404 bytes=1616
+2014-12-02T15:01:55.650627+00:00 app[web.1]: Started GET "/results/all_results" for 92.115.68.51 at 2014-12-02 15:01:55 +0000
+2014-12-02T15:01:55.650636+00:00 app[web.1]: Started GET "/results/all_results" for 92.115.68.51 at 2014-12-02 15:01:55 +0000
+2014-12-02T15:01:55.651671+00:00 app[web.1]: Processing by ResultsController#all_results as HTML
+2014-12-02T15:01:55.651675+00:00 app[web.1]: Processing by ResultsController#all_results as HTML
+2014-12-02T15:01:55.688244+00:00 app[web.1]: 
+2014-12-02T15:01:55.688242+00:00 app[web.1]: 
+2014-12-02T15:01:55.686866+00:00 app[web.1]:   Rendered results/all_results.html.erb within layouts/application (31.4ms)
+2014-12-02T15:01:55.686871+00:00 app[web.1]:   Rendered results/all_results.html.erb within layouts/application (31.4ms)
+2014-12-02T15:01:55.686895+00:00 app[web.1]: Completed 500 Internal Server Error in 35ms
+2014-12-02T15:01:55.686900+00:00 app[web.1]: Completed 500 Internal Server Error in 35ms
+2014-12-02T15:01:55.688237+00:00 app[web.1]: 
+2014-12-02T15:01:55.688245+00:00 app[web.1]: 
+2014-12-02T15:01:55.688246+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=2):
+2014-12-02T15:01:55.688247+00:00 ap
+p[web.1]:   app/views/results/all_results.html.erb:25:in `_app_views_results_all_results_html_erb___2467363758997536558_69936668725720'
+2014-12-02T15:01:55.688249+00:00 app[web.1]: 
+2014-12-02T15:01:55.688250+00:00 app[web.1]: 
+2014-12-02T15:01:55.688240+00:00 app[web.1]: ActiveRecord::RecordNotFound (Couldn't find User with id=2):
+2014-12-02T15:01:55.688241+00:00 app[web.1]:   app/views/results/all_results.html.erb:25:in `_app_views_results_all_results_html_erb___2467363758997536558_69936668725720'
+2014-12-02T15:01:55.690711+00:00 heroku[router]: at=info method=GET path="/results/all_results" host=vast-garden-1690.herokuapp.com request_id=d9c96542-9d27-4910-b763-e959ff1417d2 fwd="92.115.68.51" dyno=web.1 connect=4ms service=44ms status=404 bytes=1616
+2014-12-02T15:02:01.897629+00:00 heroku[run.3248]: State changed from up to complete
+2014-12-02T15:02:01.884856+00:00 heroku[run.3248]: Process exited with status 0
+2014-12-02T15:03:51.077731+00:00 heroku[api]: Starting process with command `bin/rails console` by jscoming@gmail.com
+2014-12-02T15:03:55.046561+00:00 heroku[run.3645]: Awaiting client
+2014-12-02T15:03:55.105826+00:00 heroku[run.3645]: Starting process with command `bin/rails console`
+2014-12-02T15:03:55.437337+00:00 heroku[run.3645]: State changed from starting to up
+2014-12-02T15:08:51.336816+00:00 app[web.1]:   Rendered results/all_results.html.erb within layouts/application (49.6ms)
+2014-12-02T15:08:51.336918+00:00 app[web.1]: Completed 500 Internal Server Error in 54ms
+2014-12-02T15:08:51.282545+00:00 app[web.1]: Processing by ResultsController#all_results as HTML
+2014-12-02T15:08:51.336824+00:00 app[web.1]:   Rendered results/all_results.html.erb within layouts/application (49.6ms)
+2014-12-02T15:08:51.280819+00:00 app[web.1]: Started GET "/results/all_results" for 92.115.68.51 at 2014-12-02 15:08:51 +0000
+2014-12-02T15:08:51.282538+00:00 app[web.1]: Processing by ResultsController#all_results as HTML
+2014-12-02T15:08:51.280825+00:00 app[web.1]: Started GET "/results/all_results" for 92.115.68.51 at 2014-12-02 15:08:51 +0000
+2014-12-02T15:08:51.336912+00:00 app[web.1]: Completed 500 Internal Server Error in 54ms
+2014-12-02T15:08:51.339435+00:00 app[web.1]: ActionView::Template::Error (undefined method `user_id' for nil:NilClass):
+2014-12-02T15:08:51.339436+00:00 app[web.1]:      8:       <th>Стаж работы</th>
+2014-12-02T15:08:51.339437+00:00 app[web.1]:      9:       <% user_id  = @results[0].user_id %>
+2014-12-02T15:08:51.339451+00:00 app[web.1]: 
+2014-12-02T15:08:51.339453+00:00 app[web.1]: ActionView::Template::Error (undefined method `user_id' for nil:NilClass):
+2014-12-02T15:08:51.339454+00:00 app[web.1]:      8:       <th>Стаж работы</th>
+2014-12-02T15:08:51.339458+00:00 app[web.1]:     11:       <% while (user_id == @results[i].user_id ) %>
+2014-12-02T15:08:51.339459+00:00 app[web.1]:     12:         <% scale = Scale.find(@results[i].scale_id) %>        
+2014-12-02T15:08:51.339460+00:00 app[web.1]:     13:         <th><%= scale.name %></td>      
+2014-12-02T15:08:51.339455+00:00 app[web.1]:      9:       <% user_id  = @results[0].user_id %>
+2014-12-02T15:08:51.339461+00:00 app[web.1]:     14:         <% i=i+1 %>
+2014-12-02T15:08:51.339456+00:00 app[web.1]:     10:       <% i=0 %>    
+2014-12-02T15:08:51.339431+00:00 app[web.1]: 
+2014-12-02T15:08:51.339439+00:00 app[web.1]:     10:       <% i=0 %>    
+2014-12-02T15:08:51.339440+00:00 app[web.1]:     11:       <% while (user_id == @results[i].user_id ) %>
+2014-12-02T15:08:51.339441+00:00 app[web.1]:     12:         <% scale = Scale.find(@results[i].scale_id) %>        
+2014-12-02T15:08:51.339442+00:00 app[web.1]:     13:         <th><%= scale.name %></td>      
+2014-12-02T15:08:51.339443+00:00 app[web.1]:     14:         <% i=i+1 %>
+2014-12-02T15:08:51.339445+00:00 app[web.1]:   app/views/results/all_results.html.erb:11:in `_app_views_results_all_results_html_erb___2467363758997536558_69936668725720'
+2014-12-02T15:08:51.339446+00:00 app[web.1]: 
+2014-12-02T15:08:51.339447+00:00 app[web.1]: 
+2014-12-02T15:08:51.339464+00:00 app[web.1]: 
+2014-12-02T15:08:51.339463+00:00 app[web.1]:   app/views/results/all_results.html.erb:11:in `_app_views_results_all_results_html_erb___2467363758997536558_69936668725720'
+2014-12-02T15:08:51.339465+00:00 app[web.1]: 
+2014-12-02T15:08:51.336040+00:00 heroku[router]: at=info method=GET path="/results/all_results" host=vast-garden-1690.herokuapp.com request_id=42b7b9f4-4d0f-4083-9397-c7b878593e6c fwd="92.115.68.51" dyno=web.1 connect=2ms service=64ms status=500 bytes=1543
+2014-12-02T15:08:51.670558+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=vast-garden-1690.herokuapp.com request_id=0d27f42e-6c2a-4c32-b634-8a5d6b2d03a7 fwd="92.115.68.51" dyno=web.1 connect=4ms service=4ms status=304 bytes=133
+2014-12-02T15:08:57.012578+00:00 heroku[run.3645]: State changed from up to complete
+2014-12-02T15:08:57.001000+00:00 heroku[run.3645]: Process exited with status 0
